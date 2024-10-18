@@ -16,7 +16,7 @@ async function registerServiceWorker() {
   });
 
   try {
-    await fetch("http://localhost:3002/subscribe", {
+    await fetch("https://push.handai.app/subscribe", {
       method: "POST",
       body: JSON.stringify(subscription),
       headers: {

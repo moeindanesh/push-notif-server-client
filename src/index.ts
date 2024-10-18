@@ -9,9 +9,8 @@ webpush.setVapidDetails(
 );
 
 const app = new Elysia()
-  .get("/", () => "Hello Elysia")
-  .listen(3002)
   .use(cors())
+  .get("/", () => "Hello Elysia")
   .post("/subscribe", ({ body }) => {
     console.log(body);
     const subscription = body as PushSubscription;
@@ -27,7 +26,8 @@ const app = new Elysia()
       .catch((err) => {
         console.log(err);
       });
-  });
+  })
+  .listen(3002);
 
 console.log(
   `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
